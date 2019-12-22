@@ -11,7 +11,7 @@ function App() {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <p>Edit <code>src/App.js</code> and save to reload. ==> V.3</p>
+          <p>Edit <code>src/App.js</code> and save to reload. ==> V.4 (k8s)</p>
           <Link to="/">Home</Link>
           <Link to="/otherpage">Other Page</Link>
           <div>
