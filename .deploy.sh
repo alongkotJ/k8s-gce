@@ -9,7 +9,7 @@ docker push jamespool/multi-server:$SHA
 docker push jamespool/multi-worker:latest
 docker push jamespool/multi-worker:$SHA
 
-kubectl apply -f k8s/
+kubectl apply -f k8s
 
 kubectl set image deployments/server-deployment server=jamespool/multi-server:$SHA
 kubectl set image deployments/client-deployment client=jamespool/multi-client:$SHA
