@@ -1,0 +1,21 @@
+# apiVersion: cert-manager.io/v1alpha1
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata: 
+  name: jamespool-info-tls
+spec:
+  secretName:  jamespool-info
+  issuerRef: 
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: jamespool.info
+  dnsNames: 
+    - jamespool.info
+    - www.jamespool.info
+  acme: 
+    config: 
+      - http01: 
+          ingressClass: nginx
+        domains: 
+          - jamespool.info
+          - www.jamespool.info
