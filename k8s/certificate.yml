@@ -4,7 +4,7 @@ kind: Certificate
 metadata: 
   name: jamespool-info-tls
 spec:
-  secretName:  jamespool-info
+  secretName: jamespool-info
   issuerRef: 
     name: letsencrypt-prod
     kind: ClusterIssuer
