@@ -1,0 +1,40 @@
+apiVersion: skaffold/v2alpha1
+kind: Config
+build:
+  local: 
+    push: false
+  artifacts:
+    - image: jamespool/multi-client
+      context: client
+      sync: 
+        manual:	
+          - src: "**/*.js"
+            dest: .
+          - src: "**/*.css"
+            dest: .
+          - src: "**/*.html"
+            dest: .
+      docker: 
+        dockerfile: Dockerfile.dev
+    - image: jamespool/multi-server
+      context: server
+      sync: 
+        manual:	
+          - src: "**/*.js"
+            dest: .
+      docker: 
+        dockerfile: Dockerfile.dev
+    - image: jamespool/multi-worker
+      context: server
+      sync: 
+        manual:	
+          - src: "**/*.js"
+            dest: .
+      docker: 
+        dockerfile: Dockerfile.dev
+deploy: 
+  kubectl:
+    manifests: 
+      - k8s/client-deployment.yml
+      - k8s/server-deployment.yml
+      - k8s/worker-deployment.yml
